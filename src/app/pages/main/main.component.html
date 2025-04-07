@@ -1,6 +1,9 @@
 <div class="top-bar">
-    <input [(ngModel)]="city" placeholder="Digite uma cidade" (keyup.enter)="searchWeather()">
-    <button (click)="searchWeather()">Busca</button>
+    <img src="../../../assets/imgs/weather.gif" alt="" srcset="">
+    <div class="search">
+        <input [(ngModel)]="city" placeholder="Digite uma cidade" (keyup.enter)="searchWeather()">
+        <button (click)="searchWeather()">Busca</button>
+    </div>
     </div>
 
     @if(weatherData) {
@@ -10,5 +13,10 @@
             <p>Temperatura: {{weatherData.current.temp_c}} °C</p>
             <p>Condição: {{weatherData.current.condition.text}}</p>
             <img [src]="weatherData.current.condition.icon" alt="Weather Icon">
+        </div>
+    } @else {
+        <div class="no-data">
+            <img src="../../../assets/imgs/no-weather.png" alt="">
+            <p>Informe um local.</p>
         </div>
     }
