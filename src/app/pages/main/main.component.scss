@@ -49,12 +49,45 @@
 }
 
 .weather-info {
+    background-color: transparent;
+    padding: 0rem;
+
+    .cln-1 {
+        width: 70%;
+        .box-1 {
+            .big-card {
+                margin-bottom: 2rem;
+                width: 100%;
+                display: flex;
+                background-color: #fff;
+                border-radius: 5rem;
+                padding: 2rem;
+                
+            }
+        }
+
+        .box-2 {
+            display: flex;
+            gap: 1rem;
+
+            .small-card {
+                display: flex;
+                background-color: #fff;
+                border-radius: 5rem;
+                padding: 2rem;
+            }
+        }
+    }
+
+    .cln-2 {
+        width: 30%;
+    }
 
 }
 
-@media (max-width: 812px) {
+@media (max-width: 820px) {
 
-    .top-bar, .no-data {
+    .top-bar, .no-data{
         margin: 2rem 1rem 0rem 1rem;
         padding: 1rem;
         flex-direction: column;

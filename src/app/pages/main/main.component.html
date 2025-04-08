@@ -1,22 +1,39 @@
 <div class="top-bar">
-    <img src="../../../assets/imgs/weather.gif" alt="" srcset="">
-    <div class="search">
-        <input [(ngModel)]="city" placeholder="Digite uma cidade" (keyup.enter)="searchWeather()">
-        <button (click)="searchWeather()">Busca</button>
-    </div>
-    </div>
+  <img src="../../../assets/imgs/weather.gif" alt="" srcset="" />
+  <div class="search">
+    <input
+      [(ngModel)]="city"
+      placeholder="Digite uma cidade"
+      (keyup.enter)="searchWeather()"
+    />
+    <button (click)="searchWeather()">Busca</button>
+  </div>
+</div>
 
-    @if(weatherData) {
-        <div class="weather-info">
-            {{weatherData.current.condition.text}}
-            <h2>{{weatherData.location.name}}</h2>
-            <p>Temperatura: {{weatherData.current.temp_c}} °C</p>
-            <p>Condição: {{weatherData.current.condition.text}}</p>
-            <img [src]="weatherData.current.condition.icon" alt="Weather Icon">
+@if(weatherData) {
+<div class="weather-info">
+    <div class="cln-1">
+        <div class="box-1">
+            <div class="big-card">
+                <h2>{{ weatherData.location.name }}</h2>
+                <p>Temperatura: {{ weatherData.current.temp_c }} °C</p>
+                <p>Condição: {{ weatherData.current.condition.text }}</p>
+                <img [src]="weatherData.current.condition.icon" alt="Weather Icon" />
+            </div>
         </div>
-    } @else {
-        <div class="no-data">
-            <img src="../../../assets/imgs/no-weather.png" alt="">
-            <p>Informe um local.</p>
+        <div class="box-2">
+            <div class="small-card"></div>
+            <div class="small-card"></div>
         </div>
-    }
+    </div>
+    <div class="cln-2">
+        <div class="long-card"></div>
+    </div>
+ 
+</div>
+} @else {
+<div class="no-data">
+  <img src="../../../assets/imgs/no-weather.png" alt="" />
+  <p>Informe um local.</p>
+</div>
+}

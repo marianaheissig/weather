@@ -13,7 +13,7 @@ export class WeatherService {
 
   //  metodo para obter a temperatura da cidade informada
   getWeatherByCity(city: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/current.json?key=${this.apiKey}&q=${city}&lang=pt`);
+    return this.http.get(`${this.baseUrl}/forecast.json?key=${this.apiKey}&q=${city}&lang=pt&days=3`);
   }
 
   // metodo para obter a temperatura pela coordenada
