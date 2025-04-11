@@ -4,9 +4,10 @@
     <input
       [(ngModel)]="city"
       placeholder="Digite uma cidade"
-      (keyup.enter)="searchWeather()"
-    />
-    <button (click)="searchWeather()">Busca</button>
+      
+      />
+      <!-- (keyup.enter)="searchWeather()" -->
+    <button>Busca</button>
   </div>
 </div>
 
@@ -15,19 +16,27 @@
     <div class="cln-1">
         <div class="box-1">
             <div class="big-card">
-                <h2>{{ weatherData.location.name }}</h2>
+                <h1>{{ weatherData.location.name }} - {{weatherData.location.region}}</h1>
                 <p>Temperatura: {{ weatherData.current.temp_c }} °C</p>
                 <p>Condição: {{ weatherData.current.condition.text }}</p>
                 <img [src]="weatherData.current.condition.icon" alt="Weather Icon" />
             </div>
         </div>
         <div class="box-2">
-            <div class="small-card"></div>
-            <div class="small-card"></div>
+            <div class="small-card">min</div>
+            <div class="small-card">max</div>
+        </div>
+        <div class="box-3">
+          <div class="small-card">sunrise</div>
+          <div class="small-card">sunset</div>
         </div>
     </div>
     <div class="cln-2">
-        <div class="long-card"></div>
+        <div class="long-card">
+          <p>forecast 1</p>
+          <p>forecast 2</p>
+          <p>forecast 3</p>
+        </div>
     </div>
  
 </div>

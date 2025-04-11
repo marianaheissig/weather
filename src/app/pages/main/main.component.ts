@@ -16,11 +16,15 @@ export class MainComponent {
   weatherData: any = null;
 
   ngOnInit() : void {
-    // this.weatherService.getWeatherByCity(this.city).subscribe((data) => { this.weatherData = data; });}
-
-
+    // this.weatherService.getWeatherByCity(this.city).subscribe((data) => { this.weatherData = data; console.log(data)  });
   }
-  searchWeather() : void { 
+
+
+
+  
+
+
+  searchWeather() { 
     if(this.city) {
       this.weatherService.getWeatherByCity(this.city).subscribe((data) => {
         console.log(data);
