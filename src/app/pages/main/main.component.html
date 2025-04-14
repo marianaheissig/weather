@@ -1,5 +1,5 @@
 <div class="top-bar">
-  <img src="../../../assets/imgs/weather.gif" alt="" srcset="" />
+  <img src="../../../assets/weather-icons/day.svg" alt="" srcset="" />
   <div class="search">
     <input
       [(ngModel)]="city"
@@ -16,14 +16,33 @@
     <div class="cln-1">
         <div class="box-1">
             <div class="big-card">
-                <h1>{{ weatherData.location.name }} - {{weatherData.location.region}}</h1>
-                <p>Temperatura: {{ weatherData.current.temp_c }} °C</p>
-                <p>Condição: {{ weatherData.current.condition.text }}</p>
-                <img [src]="weatherData.current.condition.icon" alt="Weather Icon" />
+                <div class="header">
+                  <div class="location">
+                    <img src="../../../assets/imgs/location.png" alt="">
+                    <h1>{{ weatherData.location.name }}, {{weatherData.location.region}}</h1>
+                  </div>
+                  <p>Ultima atualizacao: {{getFormatHour(weatherData.current.last_updated)}}</p>
+                </div>
+                
+
+                <div class="temp">
+                  <!-- <img [src]="weatherData.current.condition.icon" alt="Weather Icon" /> -->
+                  <img [src]="'assets/weather-icons/' + (animatedWeatherIcons[weatherData.current.condition.code] || 'default.svg')" alt="Clima">
+                  <h1>{{ weatherData.current.temp_c }}°C</h1>
+                  <div class="condition">
+                    <p class="text"> {{ weatherData.current.condition.text }}</p>
+                    <p class="feels">Sensação de {{weatherData.current.feelslike_c}}°C</p>
+                  </div>
+                </div>
             </div>
         </div>
         <div class="box-2">
-            <div class="small-card">min</div>
+            <div class="small-card">
+              <small-card
+                [image]="'../../../assets/imgs/min.png'"
+                [title]="'Minima'"
+                [value]="weatherData.forecast.forecastday[0].day.mintemp_c" />
+            </div>
             <div class="small-card">max</div>
         </div>
         <div class="box-3">

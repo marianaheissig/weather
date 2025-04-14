@@ -1,173 +1,227 @@
-
-.top-bar, .no-data, .weather-info {
-    display: flex;
-    align-items: center;
-    background-color: #fff;
-    margin: 2rem 5.5rem 0rem 5.5rem;
-    border-radius: 5rem;
-    padding: 2rem;
+.top-bar,
+.no-data,
+.weather-info {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  margin: 2rem 5.5rem 0rem 5.5rem;
+  border-radius: 5rem;
+  padding: 2rem;
 }
 .top-bar {
-    justify-content: space-between;
+  justify-content: space-between;
 
-    img {
-        width: 6rem;
-        margin-left: 3rem;
-        margin-bottom: 0rem;
-    }
-    input {
-        border: none;
-        background-color: #e4e4e4;
-        padding: 1rem;
-        border-radius: 1rem;
-        width: 20rem;
-    }
-    button {
-        width: 6rem;
-        margin-left: 1rem;
-        padding: 1rem;
-        border-radius: 1rem;
-        background-color: #3b9cbf;
-        color: #fff;
-        border: none;
-    }
-    
+  img {
+    width: 6rem;
+    margin-left: 2rem;
+    margin-bottom: 0rem;
+  }
+  input {
+    border: none;
+    background-color: #e4e4e4;
+    padding: 1rem;
+    border-radius: 1rem;
+    width: 20rem;
+  }
+  button {
+    width: 6rem;
+    margin-left: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: #3b9cbf;
+    color: #fff;
+    border: none;
+  }
 }
 
 .no-data {
-    flex-direction: column;
-    justify-content: center;
-        color: #0000003b;
-    font-size: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  color: #0000003b;
+  font-size: 2rem;
 
-    img {
-        width: 5rem;
-        margin-top: 2rem;
-        opacity: 0.30;
-    }
-    
+  img {
+    width: 5rem;
+    margin-top: 2rem;
+    opacity: 0.3;
+  }
 }
 
 .weather-info {
-    background-color: transparent;
-    padding: 0rem;
-    display: flex;
-    gap: 2rem;
-    height: 100%;
+  background-color: transparent;
+  padding: 0rem;
+  display: flex;
+  gap: 2rem;
+  height: 100%;
 
-    .cln-1 {
-        width: 70%;
-        height: inherit;
-        .box-1 {
-            .big-card {
-                margin-bottom: 2rem;
-                display: flex;
-                flex-direction: column;
-                background-color: #fff;
-                border-radius: 5rem;
-                padding: 2rem;
+  .cln-1 {
+    width: 70%;
+    height: inherit;
+    .box-1 {
+      .big-card {
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        border-radius: 5rem;
+        padding: 2.5rem;
 
-                h1 {
-                    font-family: "Pt Sans", sans-serif;
-                    margin: 0;
-                }
-                img {
-                    width: 5rem;
-                }
-            }
-        }
-
-        .box-2, .box-3 {
+        .header {
+          display: flex;
+          justify-content: space-between;
+          .location {
             display: flex;
-            gap: 1rem;
-            width: 100%;
-            margin-bottom: 2rem;
-
-            .small-card {
-                width: 55%;
-                display: flex;
-                background-color: #fff;
-                border-radius: 5rem;
-                padding: 2rem;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            img{
+                height: 2rem;
             }
+            h1 {
+              font-family: "Pt Sans", sans-serif;
+              margin: 0;
+            }
+          }
+          p {
+            opacity: 0.3;
+          }
         }
+
+        .temp {
+          display: flex;
+          align-items: center;
+          img {
+            width: 9rem;
+            margin: 0;
+          }
+          h1 {
+            font-size: 3rem;
+            font-family: "Pt Sans", sans-serif;
+            font-weight: 400;
+            margin: 0;
+          }
+
+          .condition {
+            margin-left: 2rem;
+            p {margin:0}
+            p.feels{opacity: 0.5;}
+          }
+        }
+      }
     }
 
-    .cln-2 {
-        width: 30%;
-        height: inherit;
+    .box-2,
+    .box-3 {
+      display: flex;
+      gap: 1rem;
+      width: 100%;
+      margin-bottom: 2rem;
 
-
-        .long-card {
-            display: flex;
-            flex-direction: column;
-            background-color: #fff;
-            border-radius: 5rem;
-            padding: 2rem;
-        }
+      .small-card {
+        width: 55%;
+        display: flex;
+        background-color: #fff;
+        border-radius: 5rem;
+        padding: 2rem;
+      }
     }
+  }
 
+  .cln-2 {
+    width: 30%;
+    height: inherit;
+
+    .long-card {
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      border-radius: 5rem;
+      padding: 2rem;
+    }
+  }
 }
 
 @media (max-width: 820px) {
-
-    
-    .top-bar, .no-data, .weather-info{
-        margin: 2rem 1rem 0rem 1rem;
-        padding: 1rem;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding-bottom: 5rem;
-    }
-    .top-bar {
-       
-
-        img {
-            width: 6rem;
-            margin-bottom: 1rem;
-        }
-
-        .search {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 40%;
-            input {
-                text-align: center;
-                width: 100%;
-                margin-bottom: 1rem;
-            }
-            button {
-                width: 100%;
-                margin-left: 0;
-            }
-        }
+  .top-bar,
+  .no-data,
+  .weather-info {
+    margin: 2rem 1rem 0rem 1rem;
+    padding: 1rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5rem;
+  }
+  .top-bar {
+    img {
+      width: 10rem;
+      margin-left: 0;
+    //   margin-bottom: 1rem;
     }
 
-    .weather-info {
-        padding: 0;
-
-        .cln-1, .cln-2 {
-            width: 100%;
-            margin-top: 5rem;
-            .box-1 {
-                .big-card {
-                    display: flex;
-                    flex-direction: column;
-                    width: 90%;
-
-                }
-            }
-        }
-
-        .cln-2 {
-            height: 0;
-            .long-card {
-                display: flex;
-                flex-direction: row;
-                gap: 2rem;
-            }
-        }
+    .search {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 40%;
+      input {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+      button {
+        width: 100%;
+        margin-left: 0;
+      }
     }
   }
+
+  .weather-info {
+    padding: 0;
+    height: 38rem;
+    margin-top: 5rem;
+
+    .cln-1,
+    .cln-2 {
+      width: 100%;
+      height: unset;
+      .box-1 {
+        .big-card {
+          display: flex;
+          flex-direction: column;
+
+          .header {
+            flex-direction: column-reverse;
+            align-items: center;
+            padding-top: 0rem;
+
+            .location {
+                h1{
+                    font-size: 1.5rem;
+                }
+            }
+          }
+
+          .temp {
+            flex-direction: column;
+            align-items: center;
+
+            .condition {
+                margin-left: 1rem;
+            }
+
+          }
+        }
+      }
+    }
+
+    .cln-2 {
+      height: 0;
+      .long-card {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+      }
+    }
+  }
+}
