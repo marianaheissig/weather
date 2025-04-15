@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    // font-weight: bold;
+    opacity: 0.6;
+    img {
+        width: 3rem;
+    }
+
+}
+.infos {
+    display: flex;
+    font-size: 2rem;
+    font-family: 'Pt Sans', sans-serif;
+
+    h3{
+        font-weight: 300;
+        margin: 0.5rem;
+    }
+}
+
+@media (max-width: 820px) {
+    .header, .infos {
+        justify-content: center;
+        width: 100%;
+    }
+ }

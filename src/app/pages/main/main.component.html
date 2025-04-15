@@ -40,14 +40,29 @@
             <div class="small-card">
               <small-card
                 [image]="'../../../assets/imgs/min.png'"
-                [title]="'Minima'"
-                [value]="weatherData.forecast.forecastday[0].day.mintemp_c" />
+                [title]="'Temperatura minima'"
+                [value]="weatherData.forecast.forecastday[0].day.mintemp_c + '°C'" />
             </div>
-            <div class="small-card">max</div>
+            <div class="small-card">
+              <small-card
+                [image]="'../../../assets/imgs/max.png'"
+                [title]="'Temperatura maxima'"
+                [value]="weatherData.forecast.forecastday[0].day.maxtemp_c + '°C'" />
+            </div>
         </div>
         <div class="box-3">
-          <div class="small-card">sunrise</div>
-          <div class="small-card">sunset</div>
+          <div class="small-card">
+            <small-card
+            [image]="'../../../assets/imgs/sunrise.png'"
+            [title]="'Nascer do sol'"
+            [value]="weatherData.forecast.forecastday[0].astro.sunrise" />
+          </div>
+          <div class="small-card">
+            <small-card
+            [image]="'../../../assets/imgs/sunset.png'"
+            [title]="'Por do sol'"
+            [value]="weatherData.forecast.forecastday[0].astro.sunset" />
+          </div>
         </div>
     </div>
     <div class="cln-2">
