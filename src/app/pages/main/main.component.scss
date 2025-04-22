@@ -135,12 +135,51 @@
     width: 30%;
     height: inherit;
 
-    .long-card {
+    .long-card-desktop {
       display: flex;
       flex-direction: column;
       background-color: #fff;
       border-radius: 5rem;
       padding: 2rem;
+
+      .forecast {
+        border-bottom: #0000001a 1px solid;
+        .date {
+          margin-bottom: 0;
+          margin-left: 1rem;
+          font-size: 1.5rem;
+        }
+        .info {
+          display: flex;
+
+          p{margin: 0;}
+          img {height: 7rem;}
+          .temp {
+            .avg {
+              font-size: 1.5rem;
+              margin-top: 1rem;
+            }
+          }
+          .min-max {display: flex;}
+          .min,.max {
+            padding: 5px;
+            border-radius: 3rem;
+            color: #fff;
+            font-size: 12px;
+            margin-right: 5px;
+          }
+          .min {
+            background-color: #55a4c1;
+          }
+          .max {
+            background-color: #ff2222;
+          }
+        }
+      }
+    }
+
+    .long-card-mobile {
+      display: none;
     }
   }
 }
@@ -172,6 +211,7 @@
         text-align: center;
         width: 100%;
         margin-bottom: 1rem;
+        font-size: 0.7rem;
       }
       button {
         width: 100%;
@@ -190,7 +230,6 @@
       width: 100%;
       height: unset;
       .box-1 {
-        
         .big-card {
           display: flex;
           flex-direction: column;
@@ -219,7 +258,8 @@
         }
       }
 
-      .box-2, .box-3 {
+      .box-2,
+      .box-3 {
         display: flex;
         flex-direction: column;
         gap: 1rem;
@@ -235,17 +275,57 @@
           }
         }
       }
-
-      .box-3 {}
     }
 
     .cln-2 {
       height: 0;
-      .long-card {
+      .long-card-desktop {
+        display: none;
+      }
+
+      .long-card-mobile {
         display: flex;
-        flex-direction: row;
-        gap: 2rem;
+        flex-direction: column;
+        background-color: #fff;
+        border-radius: 5rem;
+        padding: 2rem;
+
+        h2 {
+          text-align: center;
+        }
+        .forecast {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          p.date {
+            font-weight: 700;
+          }
+          p.text {
+            font-size: 0.8rem;
+            opacity: 0.6;
+            margin: 0;
+          }
+          p.temp {
+            font-size: 1.5rem;
+          }
+
+          img {
+            width: 7rem;
+            margin: 0;
+          }
+        }
       }
     }
+  }
+
+  .no-data {
+    height: 20rem;
+    padding-bottom: 1rem;
+    img {
+      width: 5rem;
+    }
+    font-size: 1rem;
   }
 }

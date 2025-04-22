@@ -5,9 +5,9 @@
       [(ngModel)]="city"
       placeholder="Digite uma cidade"
       
+      (keyup.enter)="searchWeather()"
       />
-      <!-- (keyup.enter)="searchWeather()" -->
-    <button>Busca</button>
+    <button (click)="searchWeather()">Busca</button>
   </div>
 </div>
 
@@ -27,7 +27,7 @@
 
                 <div class="temp">
                   <!-- <img [src]="weatherData.current.condition.icon" alt="Weather Icon" /> -->
-                  <img [src]="'assets/weather-icons/' + (animatedWeatherIcons[weatherData.current.condition.code] || 'default.svg')" alt="Clima">
+                  <img [src]="'assets/weather-icons/' + (animatedWeatherIcons[weatherData.current.condition.code] || 'day.svg')" alt="Clima">
                   <h1>{{ weatherData.current.temp_c }}°C</h1>
                   <div class="condition">
                     <p class="text"> {{ weatherData.current.condition.text }}</p>
@@ -66,10 +66,38 @@
         </div>
     </div>
     <div class="cln-2">
-        <div class="long-card">
-          <p>forecast 1</p>
-          <p>forecast 2</p>
-          <p>forecast 3</p>
+        <div class="long-card-desktop">
+          @for(forecast of forecastData ; track forecast) {
+            <div class="forecast">
+              <p class="date">{{forecast.date | date: 'dd/MM'}}</p>
+              <div class="info">
+                <img [src]="'assets/weather-icons/' + (animatedWeatherIcons[forecast.day.condition.code] || 'day.svg')" alt="Clima">
+                <div class="temp">
+                  <p class="avg">{{forecast.day.avgtemp_c}}°C</p>
+                  <p class="text">{{forecast.day.condition.text}}</p>
+
+                  <div class="min-max">
+                    <p class="min">Min: {{forecast.day.mintemp_c}}°C</p>
+                    <p class="max">Max: {{forecast.day.maxtemp_c}}°C</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+
+        <div class="long-card-mobile">
+          <h2>Proximos 3 dias</h2>
+          <p-carousel [value]="forecastData" [numVisible]="1" [numScroll]="1" [circular]="true" orientation="vertical" autoplayInterval="3000">
+            <ng-template let-day #item>
+              <div class="forecast">
+                <p class="date">{{day.date | date: 'dd/MM/yyyy'}}</p>
+                <img [src]="'assets/weather-icons/' + (animatedWeatherIcons[day.day.condition.code] || 'day.svg')" alt="Clima">
+                <p class="text">{{day.day.condition.text}}</p>
+                <p class="temp">{{day.day.avgtemp_c}}°C</p>
+              </div>
+            </ng-template>
+        </p-carousel>
         </div>
     </div>
  
