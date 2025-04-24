@@ -1,5 +1,9 @@
+<div class="toggle-mode">
+  <img src="../../../assets/imgs/theme.png" alt="" srcset="" (click)="toggleTheme()"  [ngClass]="isDarkTheme ? 'filter' : ''"/>
+</div>
 <div class="top-bar">
-  <img src="../../../assets/weather-icons/day.svg" alt="" srcset="" />
+  <img [src]="isDarkTheme ? '../../../assets/weather-icons/night.svg' : '../../../assets/weather-icons/day.svg' " alt="" srcset="" />
+ 
   <div class="search">
     <input
       [(ngModel)]="city"
@@ -18,7 +22,7 @@
             <div class="big-card">
                 <div class="header">
                   <div class="location">
-                    <img src="../../../assets/imgs/location.png" alt="">
+                    <img src="../../../assets/imgs/location.png" alt="" [ngClass]="isDarkTheme ? 'filter' : ''"/>
                     <h1>{{ weatherData.location.name }}, {{weatherData.location.region}}</h1>
                   </div>
                   <p>Ultima atualizacao: {{getFormatHour(weatherData.current.last_updated)}}</p>
@@ -41,13 +45,15 @@
               <small-card
                 [image]="'../../../assets/imgs/min.png'"
                 [title]="'Temperatura minima'"
-                [value]="weatherData.forecast.forecastday[0].day.mintemp_c + '°C'" />
+                [value]="weatherData.forecast.forecastday[0].day.mintemp_c + '°C'"
+                [filter]="'filter'" />
             </div>
             <div class="small-card">
               <small-card
                 [image]="'../../../assets/imgs/max.png'"
                 [title]="'Temperatura maxima'"
-                [value]="weatherData.forecast.forecastday[0].day.maxtemp_c + '°C'" />
+                [value]="weatherData.forecast.forecastday[0].day.maxtemp_c + '°C'"
+                [filter]="'filter'" />
             </div>
         </div>
         <div class="box-3">
@@ -55,13 +61,15 @@
             <small-card
             [image]="'../../../assets/imgs/sunrise.png'"
             [title]="'Nascer do sol'"
-            [value]="weatherData.forecast.forecastday[0].astro.sunrise" />
+            [value]="weatherData.forecast.forecastday[0].astro.sunrise" 
+            [filter]="'none'"/>
           </div>
           <div class="small-card">
             <small-card
             [image]="'../../../assets/imgs/sunset.png'"
             [title]="'Por do sol'"
-            [value]="weatherData.forecast.forecastday[0].astro.sunset" />
+            [value]="weatherData.forecast.forecastday[0].astro.sunset" 
+            [filter]="'none'"/>
           </div>
         </div>
     </div>

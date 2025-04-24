@@ -1,9 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-body, html {
-    font-family: "National Park", monospace;
-    margin: 0;
-    background-color: #ecf2f9;
+:root {
+  --body-color: #ecf2f9;
+  --bg-main: #fff;
+  --text-main: #000;
+  --bg-input: #e4e4e4;
+  --bg-button: #3b9cbf;
+  --text-button: #fff;
+  --card-bg: #fff;
+  --no-data-text: #0000003b;
+  --border-bottom: #0000001a;
+  --min-bg: #55a4c1;
+  --max-bg: #ff2222;
 }
-html, body { height: 100%; }
+
+.dark-theme {
+  --body-color: #161617;
+  --bg-main: #121212;
+  --text-main: #ffffff;
+  --bg-input: #2c2c2c;
+  --bg-button: #1e88e5;
+  --text-button: #ffffff;
+  --card-bg: #1e1e1e;
+  --no-data-text: #ffffff3b;
+  --border-bottom: #ffffff1a;
+  --min-bg: #3a8dab;
+  --max-bg: #d32f2f;
+}
+
+body,
+html {
+  font-family: "National Park", monospace;
+  margin: 0;
+  background-color: var(--body-color);
+  min-height: 100vh;
+  min-height: 100dvh;
+  color: var(--text-main);
+}
+
+body {
+  padding-top: 2rem;
+}
+
+html {
+  min-height: 100vh;
+  background-color: var(--body-color);
+}
+
+app-root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  

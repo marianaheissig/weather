@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SmallCardComponent } from '../../components/small-card/small-card.component';
 import { CarouselModule } from 'primeng/carousel';
+import { ThemeService } from '../../service/theme.service';
+
 
 @Component({
   selector: 'app-main',
@@ -14,13 +16,16 @@ import { CarouselModule } from 'primeng/carousel';
 })
 export class MainComponent {
   private weatherService = inject(WeatherService);
+  themeService = inject(ThemeService);
 
   city: string = '';
   weatherData: any = null;
   forecastData: any[] = [];
+  isDarkTheme: boolean = this.themeService.isDarkTheme();
 
-  ngOnInit() : void {
-    // this.weatherService.getWeatherByCity(this.city).subscribe((data) => { this.weatherData = data; console.log(data)});
+  toggleTheme() { 
+    this.themeService.toggleTheme();
+    this.isDarkTheme = !this.isDarkTheme
     
   }
 
