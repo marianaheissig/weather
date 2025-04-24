@@ -36,13 +36,42 @@
     margin-left: 2rem;
     margin-bottom: 0rem;
   }
-  input {
+  input, p-autocomplete {
     border: none;
     background-color: var(--bg-input);
     color: var(--text-main);
     padding: 1rem;
     border-radius: 1rem;
     width: 20rem;
+
+    
+    .city-option {
+      background-color: var(--bg-input);
+      min-width: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 0.5rem;
+      
+    }
+    
+    .city-name {
+      font-weight: bold;
+      color: var(--text-color); /* usa variáveis se tiver tema claro/escuro */
+    }
+    
+    .city-region {
+      font-size: 0.85rem;
+      color: var(--text-secondary-color);
+    }
+    
+    .no-results {
+      background-color: var(--bg-input);
+      padding: 1rem;
+      color: var(--text-secondary-color);
+      text-align: center;
+      font-style: italic;
+    }
+    
   }
   button {
     width: 6rem;
@@ -218,6 +247,13 @@
 }
 
 @media (max-width: 820px) {
+
+  .toggle-mode{
+    justify-content: center;
+    img {
+      margin: 0;
+    }
+  }
   .top-bar,
   .no-data,
   .weather-info {
@@ -239,16 +275,23 @@
       flex-direction: column;
       align-items: center;
       width: 40%;
-      input {
+      input, p-autocomplete {
         text-align: center;
-        width: 100%;
+        max-width: 16rem;
         margin-bottom: 1rem;
         font-size: 0.7rem;
+
+        .city-option {
+          background-color: var(--bg-input);
+          min-width: 100%;
+          font-size: 1rem;
+        }
       }
       button {
         width: 100%;
         margin-left: 0;
       }
+      
     }
   }
 

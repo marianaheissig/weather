@@ -21,4 +21,9 @@ export class WeatherService {
     return this.http.get(`${this.baseUrl}/current.json?key=${this.apiKey}&q=${lat},${lon}&lang=pt`);
   }
 
+  //procura cidades que comecam com o termo informado
+  searchCities(term: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/search.json?key=${this.apiKey}&q=${term}`);
+  }
+  
 }

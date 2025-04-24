@@ -5,13 +5,30 @@
   <img [src]="isDarkTheme ? '../../../assets/weather-icons/night.svg' : '../../../assets/weather-icons/day.svg' " alt="" srcset="" />
  
   <div class="search">
-    <input
-      [(ngModel)]="city"
-      placeholder="Digite uma cidade"
-      
-      (keyup.enter)="searchWeather()"
-      />
-    <button (click)="searchWeather()">Busca</button>
+
+      <p-autoComplete 
+      [(ngModel)]="selectedCity" 
+      [suggestions]="filteredCities" 
+      (completeMethod)="searchCity($event)" 
+      (onSelect)="onCitySelect($event)"
+      field="name"
+      [minLength]="2"
+      (keyup.enter)="onCitySelect()"
+      placeholder="Digite uma cidade">
+
+      <ng-template let-city pTemplate="item">
+        <div class="city-option">
+          <span class="city-name">{{ city.name }}</span>
+          <span class="city-region">({{ city.region }}, {{ city.country }})</span>
+        </div>
+      </ng-template>
+    
+      <ng-template pTemplate="empty">
+        <div class="no-results">Nenhuma cidade encontrada</div>
+      </ng-template>
+    </p-autoComplete>
+    
+    <button (click)="onCitySelect()">Busca</button>
   </div>
 </div>
 
@@ -30,7 +47,6 @@
                 
 
                 <div class="temp">
-                  <!-- <img [src]="weatherData.current.condition.icon" alt="Weather Icon" /> -->
                   <img [src]="'assets/weather-icons/' + (animatedWeatherIcons[weatherData.current.condition.code] || 'day.svg')" alt="Clima">
                   <h1>{{ weatherData.current.temp_c }}°C</h1>
                   <div class="condition">
